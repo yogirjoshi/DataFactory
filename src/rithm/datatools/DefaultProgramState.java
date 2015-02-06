@@ -5,7 +5,7 @@ import java.util.HashMap;
 import rithm.core.ProgState;
 
 public class DefaultProgramState extends ProgState{
-	private HashMap<String, String> field_dictionary;
+	public HashMap<String, String> field_dictionary;
 	public DefaultProgramState(double timestamp) {
 		// TODO Auto-generated constructor stub
 		super(timestamp);
@@ -29,5 +29,8 @@ public class DefaultProgramState extends ProgState{
 			field_dictionary.put(key, Val);
 		return true;
 	}
-
+	public HashMap<String, String> getDictionary()
+	{
+		return this.field_dictionary;
+	}
 }
