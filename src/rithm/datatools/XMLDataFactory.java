@@ -28,6 +28,7 @@ public class XMLDataFactory extends rithm.core.DataFactory<ProgState, ArrayList<
 	static final String toplevelname = "Trace";
 	static final String eventname = "State";
 	static final String fieldname = "Key";
+	static final String timestampField = "timestamp";
 	static final String fieldvalue = "Value";
 	private XMLEventReader eventReader;
 	protected XMLInputFactory inputFactory;
@@ -125,6 +126,10 @@ public class XMLDataFactory extends rithm.core.DataFactory<ProgState, ArrayList<
 							{
 								System.err.println(curr_key);
 							}
+						}
+						if(localpart.contains(timestampField))
+						{
+							curr_state.SetVal("timestamp", getCharacterData(curr_event,eventReader));
 						}
 						if(localpart.contains(fieldvalue))
 						{
